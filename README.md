@@ -5,16 +5,16 @@ A collection of services to setup up local development environment via docker-co
 ##### Start
 
 ```
-docker-compose up <SERVICENAME>
+docker-compose up <SERVICENAME...>
 ```
 
 ##### Stop
 
 ```
-docker-compose down <SERVICENAME>
+docker-compose down <SERVICENAME...>
 ```
 
-*omit service name to start/shutdown everything
+*You can specify more then one service name. Omit to start/shutdown everything
 
 #### Included services:
 
