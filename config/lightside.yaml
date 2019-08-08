@@ -1,0 +1,6 @@
+Quote: Your eyes can deceive you. Don’t trust them
+Lightsaber:
+  Color: purple
+RebelBase: "{cipher}9a3445d7cdfdf28f43ee990da712bfdbccce7f08cd2f212125e9eaf2c1a00db3"
+Jedi: Luke
+Mastery: ${Jedi} wields ${Lightsaber:Color} lightsaber
