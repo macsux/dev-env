@@ -22,7 +22,7 @@ services:
       - ./telegraf.conf:/etc/telegraf/telegraf.conf
 
   sqlserver:
-    image: mcr.microsoft.com/mssql/server:2017-latest
+    image: mcr.microsoft.com/mssql/server:2019-latest
     restart: always
     ports:
       - 1433:1433
@@ -49,6 +49,8 @@ services:
 
   eureka:
     image: steeltoeoss/eurekaserver
+    environment: 
+      eureka_server_enableSelfPreservation: "false" # we want things to get kicked out of the registry when app is shut down
     ports:
       - "8761:8761"
 
@@ -142,15 +144,15 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: admin
 
   omnidb: 
-    #image: taivokasper/omnidb
-    image: macsux/omnidb
+    image: taivokasper/omnidb
+    #image: omnidb
     volumes:
       - ./data/omnidb:/etc/omnidb
     ports:
       - 8085:8080
       - 25482:25482
 
-  postgres:
+  postgresql:
     image: postgres
     ports:
       - 5432:5432
@@ -189,6 +191,20 @@ services:
       - 1521:1521
     environment:
       ORACLE_PWD: admin
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+  gitea:
+    image: gitea/gitea:1.12.4
+    volumes:
+      - ./data:/data
+    ports:
+      - "3000:3000"
+      - "22:22"
+    depends_on:
+      - mysql
+    restart: always
 
 volumes:
   mySqlData:
