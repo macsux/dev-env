@@ -82,7 +82,7 @@ docker-compose down
 
 ##### Spring Cloud Services
 
-- `configserver` - [Spring Cloud Config Server](https://cloud.spring.io/spring-cloud-config) 
+- `config-server` - [Spring Cloud Config Server](https://cloud.spring.io/spring-cloud-config) 
   - http://localhost:8888
   - By default looks for config files inside `./config` directory. Edit `config-server.env` to reconfigure to use Git
   
@@ -117,3 +117,8 @@ docker-compose down
     WAVEFRONT_URL=https://{TENANT}.wavefront.com/api
     WAVEFRONT_TOKEN={API KEY}
     ```
+
+**Other**
+
+- `gitea` - Gitea - lightweight git server
+  - http://localhost:3000

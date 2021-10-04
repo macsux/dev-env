@@ -33,7 +33,7 @@ services:
       ACCEPT_EULA: Y
       SA_PASSWORD: P@ssword
 
-  configserver:
+  config-server:
     image: steeltoeoss/config-server
     restart: always
     ports:
@@ -168,7 +168,7 @@ services:
     image: concourse/concourse
     command: quickstart
     privileged: true
-    depends_on: [postgres]
+    depends_on: [postgresql]
     ports: ["8087:8080"]
     environment:
       CONCOURSE_POSTGRES_HOST: postgres
@@ -205,6 +205,11 @@ services:
     depends_on:
       - mysql
     restart: always
+
+  spring-boot-admin:
+    image: steeltoeoss/spring-boot-admin
+    ports: 
+      - 8088:8080 
 
 volumes:
   mySqlData:
